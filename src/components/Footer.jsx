@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Container, Grid, Typography, Link } from "@mui/material";
 
 const Footer = () => {
@@ -8,7 +7,7 @@ const Footer = () => {
       sx={{
         backgroundColor: "#1a1a1a",
         color: "#fff",
-        py: 6,
+        py: { xs: 4, sm: 6 },
         mt: 10,
       }}
     >
@@ -19,8 +18,8 @@ const Footer = () => {
             <Typography variant="h6" gutterBottom>
               CodeinHindi
             </Typography>
-            <Typography variant="body2" color="gray">
-              Learn coding the easy way, in your own language. <br/>
+            <Typography variant="body2" sx={{ color: "gray" }}>
+              Learn coding the easy way, in your own language. <br />
               Join us to explore HTML, CSS, JavaScript and more!
             </Typography>
           </Grid>
@@ -31,18 +30,21 @@ const Footer = () => {
               Quick Links
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              <Link href="#" underline="hover" color="inherit">
-                Home
-              </Link>
-              <Link href="#" underline="hover" color="inherit">
-                Courses
-              </Link>
-              <Link href="#" underline="hover" color="inherit">
-                Blog
-              </Link>
-              <Link href="#" underline="hover" color="inherit">
-                Contact
-              </Link>
+              {["Home", "Courses", "Blog", "Contact"].map((text) => (
+                <Link
+                  key={text}
+                  href="#"
+                  underline="hover"
+                  color="inherit"
+                  sx={{
+                    transition: "color 0.2s",
+                    "&:hover": { color: "#6c63ff" },
+                    fontSize: "1rem",
+                  }}
+                >
+                  {text}
+                </Link>
+              ))}
             </Box>
           </Grid>
 
@@ -51,15 +53,18 @@ const Footer = () => {
             <Typography variant="h6" gutterBottom>
               Contact
             </Typography>
-            <Typography variant="body2">Email: support@codeinhindi.com</Typography>
-           
-            <Typography variant="body2">Location: India</Typography>
+            <Typography variant="body2" sx={{ color: "gray" }}>
+              Email: support@codeinhindi.com
+            </Typography>
+            <Typography variant="body2" sx={{ color: "gray" }}>
+              Location: India
+            </Typography>
           </Grid>
         </Grid>
 
         {/* Bottom Line */}
         <Box sx={{ textAlign: "center", pt: 5 }}>
-          <Typography variant="body2" color="gray">
+          <Typography variant="body2" sx={{ color: "gray" }}>
             © {new Date().getFullYear()} CodeinHindi. All rights reserved.
           </Typography>
         </Box>

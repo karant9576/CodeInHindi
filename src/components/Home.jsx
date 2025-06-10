@@ -11,6 +11,8 @@ function Home() {
     mt: { xs: 8, md: 12 },
     px: { xs: 2, sm: 3, md: 4 },
     overflowX: "hidden", // Prevent horizontal scroll
+    mx: "auto",
+    
   }}
 >
   <Grid container spacing={4} alignItems="center">
@@ -63,6 +65,7 @@ function Home() {
           maxWidth: { xs: "100%", sm: 400, md: 600 },
           display: "block",
           mx: "auto",
+          
           
          
         }}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -10,29 +10,62 @@ import {
   List,
   ListItem,
   ListItemText,
+  Menu,
+  MenuItem,
+  Collapse,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const navItems = ["Home", "About", "Blog", "Tutorials"];
 
-const Navbar = ({darkMode, onToggleTheme }) => {
+const tutorialItems = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Bootstrap",
+  "React",
+  "MongoDB",
+  "Git",
+  "Java",
+  "C++",
+  "C",
+  "PHP",
+  "Django",
+  "Flask",
+  "C#",
+  "Ruby",
+  "Node.js",
+  "Python",
+];
+
+const Navbar = ({ darkMode, onToggleTheme }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
- 
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileTutorialsOpen, setMobileTutorialsOpen] = useState(false);
+
+  const open = Boolean(anchorEl);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
   const drawer = (
     <Box
-      onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
         mt: 2,
-
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -49,21 +82,58 @@ const Navbar = ({darkMode, onToggleTheme }) => {
         CodeInHindi
       </Typography>
       <List>
-        {navItems.map((item) => (
-          <ListItem
-            button
-            key={item}
-            sx={{
-              justifyContent: "center",
-              "& .MuiListItemText-primary": {
-                fontWeight: 600,
-                fontSize: "1.1rem",
-              },
-            }}
-          >
-            <ListItemText primary={item} />
-          </ListItem>
-        ))}
+        {navItems.map((item) =>
+          item === "Tutorials" ? (
+            <Box key={item}>
+              <ListItem
+                button
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent Drawer from closing on first click
+                  setMobileTutorialsOpen((prev) => !prev);
+                }}
+                sx={{
+                  justifyContent: "center",
+                  "& .MuiListItemText-primary": {
+                    fontWeight: 600,
+                    fontSize: "1.1rem",
+                  },
+                }}
+              >
+                <ListItemText primary={item} />
+                {mobileTutorialsOpen ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={mobileTutorialsOpen} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {tutorialItems.map((tutorial) => (
+                    <ListItem
+                      key={tutorial}
+                      button
+                      onClick={handleDrawerToggle} // Close drawer when tutorial clicked
+                      sx={{ pl: 4, justifyContent: "flex-start" }}
+                    >
+                      <ListItemText primary={tutorial} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Collapse>
+            </Box>
+          ) : (
+            <ListItem
+              button
+              key={item}
+              onClick={handleDrawerToggle}
+              sx={{
+                justifyContent: "center",
+                "& .MuiListItemText-primary": {
+                  fontWeight: 600,
+                  fontSize: "1.1rem",
+                },
+              }}
+            >
+              <ListItemText primary={item} />
+            </ListItem>
+          )
+        )}
       </List>
       <IconButton
         onClick={onToggleTheme}
@@ -78,9 +148,7 @@ const Navbar = ({darkMode, onToggleTheme }) => {
   return (
     <Box
       sx={{
-      
         color: darkMode ? "#fff" : "#000",
-
         transition: "all 0.4s ease",
       }}
     >
@@ -112,7 +180,7 @@ const Navbar = ({darkMode, onToggleTheme }) => {
             CodeInHindi
           </Typography>
 
-          {/* Desktop nav */}
+          {/* Desktop Navigation */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -121,30 +189,73 @@ const Navbar = ({darkMode, onToggleTheme }) => {
               mr: 2,
             }}
           >
-            {navItems.map((item) => (
-              <Button
-                key={item}
-                sx={{
-                  color: darkMode ? "#fff" : "#000",
-                  fontWeight: 500,
-                  textTransform: "none",
-                  fontSize: "1rem",
-                  borderBottom: "2px solid transparent", // prevent layout shift
-                  "&:hover": {
-                    color: "#6c63ff",
-                    borderBottom: "2px solid #6c63ff",
-                  },
-                }}
-              >
-                {item}
-              </Button>
-            ))}
+            {navItems.map((item) =>
+              item === "Tutorials" ? (
+                <Box key={item}>
+                  <Button
+                    sx={{
+                      color: darkMode ? "#fff" : "#000",
+                      fontWeight: 500,
+                      textTransform: "none",
+                      fontSize: "1rem",
+                      borderBottom: "2px solid transparent",
+                      "&:hover": {
+                        color: "#6c63ff",
+                        borderBottom: "2px solid #6c63ff",
+                      },
+                    }}
+                    onClick={handleMenuOpen}
+                  >
+                    {item}
+                  </Button>
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleMenuClose}
+                    MenuListProps={{
+                      "aria-labelledby": "tutorials-button",
+                    }}
+                  >
+                    {tutorialItems.map((tutorial) => (
+                      <MenuItem
+                        key={tutorial}
+                        onClick={handleMenuClose}
+                        sx={{
+                          "&:hover": {
+                            color: "#6c63ff",
+                          },
+                        }}
+                      >
+                        {tutorial}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </Box>
+              ) : (
+                <Button
+                  key={item}
+                  sx={{
+                    color: darkMode ? "#fff" : "#000",
+                    fontWeight: 500,
+                    textTransform: "none",
+                    fontSize: "1rem",
+                    borderBottom: "2px solid transparent",
+                    "&:hover": {
+                      color: "#6c63ff",
+                      borderBottom: "2px solid #6c63ff",
+                    },
+                  }}
+                >
+                  {item}
+                </Button>
+              )
+            )}
             <IconButton onClick={onToggleTheme} color="inherit">
               {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
           </Box>
 
-          {/* Mobile menu icon */}
+          {/* Mobile Menu Icon */}
           <IconButton
             edge="end"
             color="inherit"
