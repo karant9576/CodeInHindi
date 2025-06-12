@@ -1,3 +1,4 @@
+// ...existing imports...
 import { useState } from "react";
 import {
   AppBar,
@@ -19,6 +20,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import { useNavigate } from "react-router-dom";
 
 const navItems = ["Home", "About", "Blog", "Tutorials"];
 
@@ -46,7 +48,7 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileTutorialsOpen, setMobileTutorialsOpen] = useState(false);
-
+  const navigate = useNavigate();
   const open = Boolean(anchorEl);
 
   const handleDrawerToggle = () => {
@@ -121,7 +123,13 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
             <ListItem
               button
               key={item}
-              onClick={handleDrawerToggle}
+              onClick={() => {
+                handleDrawerToggle();
+                if (item === "About") {
+                  navigate("/about");
+                }
+                // Yahan aap Home, Blog ke liye bhi navigation add kar sakte hain
+              }}
               sx={{
                 justifyContent: "center",
                 "& .MuiListItemText-primary": {
@@ -244,6 +252,12 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
                       color: "#6c63ff",
                       borderBottom: "2px solid #6c63ff",
                     },
+                  }}
+                  onClick={() => {
+                    if (item === "About") {
+                      navigate("/about");
+                    }
+                    // Yahan aap Home, Blog ke liye bhi navigation add kar sakte hain
                   }}
                 >
                   {item}
