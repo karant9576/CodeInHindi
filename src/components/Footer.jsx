@@ -1,6 +1,10 @@
 import { Box, Container, Grid, Typography, Link } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const pages = ["Home", "About", "Blog"];
+
   return (
     <Box
       component="footer"
@@ -30,21 +34,31 @@ const Footer = () => {
               Quick Links
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              {["Home", "Courses", "Blog", "Contact"].map((text) => (
-                <Link
-                  key={text}
-                  href="#"
-                  underline="hover"
-                  color="inherit"
-                  sx={{
-                    transition: "color 0.2s",
-                    "&:hover": { color: "#6c63ff" },
-                    fontSize: "1rem",
-                  }}
-                >
-                  {text}
-                </Link>
-              ))}
+              {pages.map((text) => {
+                let path = "/";
+
+                if (text === "Home") path = "/";
+                else if (text === "About") path = "/about";
+                else if (text === "Blog") path = "/blog";
+                
+
+                return (
+                  <Link
+                    key={text}
+                    underline="hover"
+                    color="inherit"
+                    sx={{
+                      transition: "color 0.2s",
+                      cursor: "pointer",
+                      "&:hover": { color: "#6c63ff" },
+                      fontSize: "1rem",
+                    }}
+                    onClick={() => navigate(path)}
+                  >
+                    {text}
+                  </Link>
+                );
+              })}
             </Box>
           </Grid>
 
