@@ -1,5 +1,5 @@
 import { Typography,  Box, Container, Grid } from "@mui/material";
-
+import SlidingCards from "./Slidingcard"; // Adjust the import path as necessary
 import heroImage from "../assets/logoc.png"; // <- Replace with the correct path (your uploaded image)
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
 >
   <Grid container spacing={4} alignItems="center">
     {/* Left Side Text */}
-    <Grid item xs={12} md={6} sx={{ textAlign: { xs: "center", md: "left" } }}>
+    <Grid item xs={12} md={6} sx={{ textAlign: { xs: "center", md: "left" }, ml:{ xs: 0, sm: 19, md: 12 } }}>
       <Typography
         variant="subtitle2"
         color="#6c63ff"
@@ -65,12 +65,13 @@ function Home() {
           maxWidth: { xs: "100%", sm: 400, md: 600 },
           display: "block",
           mx: "auto",
-          
+          ml: { xs: 0, sm: 19, md: 0 },
           
          
         }}
       />
     </Grid>
+       <SlidingCards  />
   </Grid>
 </Container>
 

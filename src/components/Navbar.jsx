@@ -1,4 +1,3 @@
-// ...existing imports...
 import { useState } from "react";
 import {
   AppBar,
@@ -28,20 +27,13 @@ const tutorialItems = [
   "HTML",
   "CSS",
   "JavaScript",
-  "Bootstrap",
   "React",
+  "Bootstrap",
+  "Node.js",
   "MongoDB",
   "Git",
-  "Java",
-  "C++",
-  "C",
-  "PHP",
-  "Django",
-  "Flask",
-  "C#",
-  "Ruby",
-  "Node.js",
   "Python",
+  "MySQL",
 ];
 
 const Navbar = ({ darkMode, onToggleTheme }) => {
@@ -90,7 +82,7 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
               <ListItem
                 button
                 onClick={(e) => {
-                  e.stopPropagation(); // prevent Drawer from closing on first click
+                  e.stopPropagation();
                   setMobileTutorialsOpen((prev) => !prev);
                 }}
                 sx={{
@@ -110,7 +102,10 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
                     <ListItem
                       key={tutorial}
                       button
-                      onClick={handleDrawerToggle} // Close drawer when tutorial clicked
+                      onClick={() => {
+                        handleDrawerToggle();
+                        navigate(`/tutorials/${tutorial.toLowerCase()}`);
+                      }}
                       sx={{ pl: 4, justifyContent: "flex-start" }}
                     >
                       <ListItemText primary={tutorial} />
@@ -125,10 +120,9 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
               key={item}
               onClick={() => {
                 handleDrawerToggle();
-                if (item === "About") {
-                  navigate("/about");
-                }
-                // Yahan aap Home, Blog ke liye bhi navigation add kar sakte hain
+                if (item === "Home") navigate("/");
+                else if (item === "About") navigate("/about");
+                else if (item === "Blog") navigate("/blog");
               }}
               sx={{
                 justifyContent: "center",
@@ -227,7 +221,10 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
                     {tutorialItems.map((tutorial) => (
                       <MenuItem
                         key={tutorial}
-                        onClick={handleMenuClose}
+                        onClick={() => {
+                          handleMenuClose();
+                          navigate(`/tutorials/${tutorial.toLowerCase()}`);
+                        }}
                         sx={{
                           "&:hover": {
                             color: "#6c63ff",
@@ -254,10 +251,9 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
                     },
                   }}
                   onClick={() => {
-                    if (item === "About") {
-                      navigate("/about");
-                    }
-                    // Yahan aap Home, Blog ke liye bhi navigation add kar sakte hain
+                    if (item === "Home") navigate("/");
+                    else if (item === "About") navigate("/about");
+                    else if (item === "Blog") navigate("/blog");
                   }}
                 >
                   {item}
