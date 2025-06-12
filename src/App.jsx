@@ -1,13 +1,13 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import SlidingCards from './components/Slidingcard';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useMemo } from 'react';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-
+import About from './components/About';
 // Dummy Pages (Create these components later)
 
  // For individual tutorials like HTML, CSS
@@ -48,7 +48,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home darkMode={darkMode} />} />
-          
+          <Route path="/about" element={<About />} />
           
         </Routes>
 
