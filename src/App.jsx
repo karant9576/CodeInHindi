@@ -49,10 +49,14 @@ function App() {
           <Route path="/" element={<Home darkMode={darkMode} />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
-          {/* pages */}
+          {/* html routes */}
           <Route path="/html" element={<Htmlinfo />} />
+           <Route path="/html/:topic" element={<Htmlinfo darkMode={darkMode} />} />
+          {/* css routes */}
           <Route path="/css" element={<CssInfo />} />
+          {/* js routes */}
           <Route path="/javascript" element={<Jsinfo />} />
+          <Route path="/javascript/:topic" element={<Jsinfo />} />
 
         </Routes>
 
