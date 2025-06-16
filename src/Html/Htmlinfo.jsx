@@ -18,6 +18,21 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 // Topic components
 import Html_intro from './topics/Html_intro';
 import Html_tags from './topics/Html_tags';
+import Html_meta_tags from './topics/Html_meta_tags';
+import Html_elements from './topics/Html_elements';
+import Html_attributes from './topics/Html _attributes';
+import Html_formatting from './topics/Html_formatting';
+import Html_heading from './topics/Html_heading';
+import Html_anchor from './topics/Html_anchor';
+import Html_image from './topics/Html_image';
+import Html_list from './topics/Html_list';
+import Html_table from './topics/Html_table';
+import Html_form from './topics/Html_form';
+import Html_form_element from './topics/Html_form_element';
+import Html_form_input_types from './topics/Html_form_Input_type';
+import Html_iframe from './topics/Html_iframe';
+import Html_audio from './topics/Html_audio';
+import Html_video from './topics/Html_video';
 // import more components as needed...
 
 const Htmlinfo = () => {
@@ -50,7 +65,22 @@ const Htmlinfo = () => {
   const topicComponents = {
     introduction: Html_intro,
     tags: Html_tags,
-    // Add remaining components here...
+    'meta-tags': Html_meta_tags, 
+    'elements': Html_elements,
+     'attributes': Html_attributes,
+    formatting : Html_formatting,
+    'headings': Html_heading,
+    'anchor': Html_anchor, 
+    image: Html_image,
+    list: Html_list,
+    table: Html_table,
+    form: Html_form,
+    'form-elements': Html_form_element, 
+    'input-types': Html_form_input_types,
+    iframe: Html_iframe,
+    audio: Html_audio,
+    video: Html_video,
+
   };
 
   const TopicComponent = topicComponents[topic];
@@ -126,7 +156,7 @@ const Htmlinfo = () => {
         )}
 
         {/* 🔁 Navigation Buttons */}
-        <Stack direction="row" spacing={2} sx={{ mt: 4, mb: 4, justifyContent: 'center' }}>
+        <Stack direction="row" spacing={2} sx={{ mt: 4, mb: 4, justifyContent: 'center', gap: 2 }}>
           <Button
             variant="outlined"
             color="primary"
