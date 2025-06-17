@@ -5,25 +5,33 @@ import {
   ListItem,
   Button,
   Grid,
+  IconButton,
+  Drawer,
+  Stack,
   useMediaQuery,
 } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 
-// Topic components
+// ✅ Topic Components
 import Js_intro from './topics/Js_intro';
 // import Js_syntax from './topics/Js_syntax';
-// import more components as needed...
+// import Js_variables from './topics/Js_variables';
+// import Js_functions from './topics/Js_functions';
+// Add all remaining components...
 
 const Jsinfo = () => {
   const navigate = useNavigate();
   const { topic } = useParams();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const jsTopics = [
-    { label: 'JavaScript Introduction In Hindi', path: 'introduction' },
-    { label: 'JavaScript Syntax In Hindi', path: 'syntax' },
+    { label: 'JavaScript Introduction', path: 'introduction' },
+    { label: 'JavaScript Syntax', path: 'syntax' },
     { label: 'Variables and Data Types', path: 'variables' },
     { label: 'Functions and Scope', path: 'functions' },
     { label: 'Objects and Arrays', path: 'objects-arrays' },
@@ -39,64 +47,67 @@ const Jsinfo = () => {
     // syntax: Js_syntax,
     // variables: Js_variables,
     // functions: Js_functions,
-    // etc...
+    // Add the rest...
   };
 
   const TopicComponent = topicComponents[topic];
 
+  const renderTopicList = () => (
+    <Box sx={{ width: 250, p: 2 }}>
+      <Typography variant="h6" gutterBottom>
+        📘 JavaScript Topics
+      </Typography>
+      <List>
+        {jsTopics.map((t, i) => (
+          <ListItem key={i} disablePadding sx={{ mb: 1 }}>
+            <Button
+              fullWidth
+              variant={topic === t.path ? 'contained' : 'outlined'}
+              onClick={() => {
+                navigate(`/javascript/${t.path}`);
+                setDrawerOpen(false);
+              }}
+              sx={{
+                textTransform: 'none',
+                justifyContent: 'flex-start',
+                fontWeight: 500,
+              }}
+            >
+              {t.label}
+            </Button>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  const currentIndex = jsTopics.findIndex((t) => t.path === topic);
+  const previousPath = currentIndex > 0 ? `/javascript/${jsTopics[currentIndex - 1].path}` : null;
+  const nextPath = currentIndex < jsTopics.length - 1 ? `/javascript/${jsTopics[currentIndex + 1].path}` : null;
+
   return (
-    <Grid container sx={{ minHeight: '100vh' }}>
-      {/* Mobile: Show topics on top */}
+    <Grid container>
+      {/* Mobile Header */}
       {isMobile && (
-        <Grid item xs={12} sx={{ p: 2 }}>
-          <Typography variant="h6" gutterBottom>
-            JavaScript Topics
-          </Typography>
-          <List>
-            {jsTopics.map((t, i) => (
-              <ListItem key={i} disablePadding sx={{ mb: 1 }}>
-                <Button
-                  fullWidth
-                  variant={topic === t.path ? 'contained' : 'outlined'}
-                  onClick={() => navigate(`/javascript/${t.path}`)}
-                  sx={{
-                    textTransform: 'none',
-                    justifyContent: 'flex-start',
-                    fontWeight: 500,
-                  }}
-                >
-                  {t.label}
-                </Button>
-              </ListItem>
-            ))}
-          </List>
-        </Grid>
+        <>
+          <Grid item xs={12} sx={{ p: 1, display: 'flex', alignItems: 'center' }}>
+            <IconButton onClick={() => setDrawerOpen(true)}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" sx={{ ml: 1, mt: 1 }}>
+              JavaScript Tutorial
+            </Typography>
+          </Grid>
+          <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+            {renderTopicList()}
+          </Drawer>
+        </>
       )}
 
       {/* Desktop Sidebar */}
       {!isMobile && (
         <Grid item md={3} sx={{ p: 2 }}>
-          <Typography variant="h6" gutterBottom>
-            JavaScript Topics
-          </Typography>
-          <List>
-            {jsTopics.map((t, i) => (
-              <ListItem key={i} disablePadding sx={{ mb: 1 }}>
-                <Button
-                  fullWidth
-                  variant={topic === t.path ? 'contained' : 'outlined'}
-                  onClick={() => navigate(`/javascript/${t.path}`)}
-                  sx={{
-                    textTransform: 'none',
-                    justifyContent: 'flex-start',
-                    fontWeight: 500,
-                  }}
-                >
-                  {t.label}
-                </Button>
-              </ListItem>
-            ))}
-          </List>
+          {renderTopicList()}
         </Grid>
       )}
 
@@ -109,6 +120,26 @@ const Jsinfo = () => {
             कृपया कोई JavaScript टॉपिक चुनें, और यहाँ उसका कंटेंट दिखाई देगा।
           </Typography>
         )}
+
+        {/* Navigation Buttons */}
+        <Stack direction="row" spacing={2} sx={{ mt: 4, mb: 4, justifyContent: 'center' }}>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => previousPath && navigate(previousPath)}
+            disabled={!previousPath}
+          >
+            Previous
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => nextPath && navigate(nextPath)}
+            disabled={!nextPath}
+          >
+            Next
+          </Button>
+        </Stack>
       </Grid>
     </Grid>
   );

@@ -29,7 +29,7 @@ const Html_form_element = () => {
       <Typography variant="h6" gutterBottom>HTML Form Example</Typography>
       <Typography gutterBottom>File: <code>html_form_elements.html</code></Typography>
 
-      <pre style={{ background: '#e0f7fa', padding: '10px', overflowX: 'auto' }}>
+      <pre style={{ background: '#8CCDEB', padding: '10px', overflowX: 'auto' }}>
 {`<!DOCTYPE html>
 <html>
   <head>
