@@ -52,11 +52,15 @@ function App() {
           {/* html routes */}
           <Route path="/html" element={<Htmlinfo />} />
            <Route path="/html/:topic" element={<Htmlinfo darkMode={darkMode} />} />
+
           {/* css routes */}
           <Route path="/css" element={<CssInfo />} />
+          <Route path="/css/:topic" element={<CssInfo />} />
+
           {/* js routes */}
           <Route path="/javascript" element={<Jsinfo />} />
           <Route path="/javascript/:topic" element={<Jsinfo />} />
+
 
         </Routes>
 

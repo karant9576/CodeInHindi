@@ -4,7 +4,7 @@ const Html_list = () => {
   return (
     <Box sx={{ p: 2, maxWidth: "900px", mx: "auto" }}>
       <Typography variant="h4" color="primary" gutterBottom>
-        HTML List In Hindi
+        HTML List 
       </Typography>
 
       <Typography variant="body1" gutterBottom>
@@ -122,7 +122,8 @@ const Html_list = () => {
           p: 2,
           borderRadius: 2,
           mb: 2,
-          whiteSpace: "pre-wrap"
+          whiteSpace: "pre",
+          overflowX: "auto"
         }}
       >
         {`<dl>
