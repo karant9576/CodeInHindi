@@ -86,7 +86,7 @@ const Htmlinfo = () => {
   const TopicComponent = topicComponents[topic];
 
   const renderTopicList = () => (
-    <Box sx={{ width: 250, p: 2 }}>
+    <Box sx={{ width: 250, p: 2 , maxWidth:900 }}>
       <Typography variant="h6" gutterBottom>
         📘 HTML Topics
       </Typography>
