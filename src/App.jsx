@@ -59,7 +59,7 @@ function App() {
 
           {/* js routes */}
           <Route path="/javascript" element={<Jsinfo />} />
-          <Route path="/javascript/:topic" element={<Jsinfo />} />
+          <Route path="/javascript/:topic" element={<Jsinfo  darkMode={darkMode}/>} />
 
 
         </Routes>

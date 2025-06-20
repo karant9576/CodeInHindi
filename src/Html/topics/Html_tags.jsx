@@ -87,7 +87,7 @@ const tagData = [
 
 const Html_tags = () => {
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh", p: 2 }}>
+    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center",  p: 2 , width: '100%', maxWidth: 'auto', margin: '0 auto'}}>
       <Grid >
         
           <Typography variant="h4" gutterBottom color="primary">

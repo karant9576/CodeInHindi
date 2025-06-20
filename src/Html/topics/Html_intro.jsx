@@ -9,8 +9,9 @@ const Html_intro = () => {
         alignItems: 'center',
         minHeight: '100vh',
         width: '100%',
-        maxWidth: '900px',
+        maxWidth: 'atuo',
         margin: '0 auto',
+        
         p: 2,
       }}
     >
@@ -19,7 +20,7 @@ const Html_intro = () => {
           HTML परिचय
         </Typography>
 
-        <List sx={{ pl: 2 }}>
+        <List sx={{ pl: 2,  }}>
           <Typography component="li">• HTML का पूरा नाम HyperText Markup Language है।</Typography>
           <Typography component="li">• यह वेब पेज के लिए एक मानक मार्कअप भाषा है।</Typography>
           <Typography component="li">• यह वेब पेज की संरचना को परिभाषित करता है।</Typography>
