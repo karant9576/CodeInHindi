@@ -63,6 +63,7 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+       
       }}
     >
       <Typography
@@ -152,15 +153,18 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
       sx={{
         color: darkMode ? "#fff" : "#000",
         transition: "all 0.4s ease",
+        
       }}
     >
       <AppBar
-        position="static"
+        position="fixed"
         color="transparent"
         elevation={0}
         sx={{
-          bgcolor: "transparent",
+          background: !darkMode ?"#fff ":"#181c31"  ,
           color: darkMode ? "#fff" : "#000",
+          zIndex:4,
+          
         }}
       >
         <Toolbar
@@ -168,13 +172,14 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
             justifyContent: "space-between",
             py: { xs: 1, sm: 2, md: 3 },
             px: { xs: 1, sm: 4, md: 10 },
+            
           }}
         >
           <Typography
             variant="h6"
             fontWeight={700}
             sx={{
-              ml: { xs: 0, md: 4 },
+              ml: { xs: 0, md: 4, sm:4, },
               fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
               letterSpacing: 1,
             }}
@@ -210,6 +215,7 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
                 mr: 2,
                 position: "relative",
                 zIndex: 2, // keep navbar above the blur
+                
               }}
             >
               {navItems.map((item) =>

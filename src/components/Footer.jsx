@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
-  const pages = ["Home", "About", "Blog"];
+  const pages = ["Home", "About", "Blog",];
 
   return (
     <Box

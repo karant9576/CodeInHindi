@@ -8,42 +8,42 @@ import {
   IconButton,
   Drawer,
   Stack,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 // ✅ Topic components
-import WhatIsCss from './topics/WhatIsCss';
-import CssSyntax from './topics/CssSyntax';
-import AddCss from './topics/AddCss';
-import CssSelectors from './topics/CssSelectors.jsx';
-import CssColors from './topics/CssColors.jsx';
-import CssBackground from './topics/CssBackground.jsx';
-import CssBorderStyle from './topics/CssBorderStyle.jsx';
-import CssBorderWidth from './topics/CssBorderWidth.jsx';
-import CssBorderColor from './topics/CssBorderColor.jsx';
-import CssMargin from './topics/CssMargin.jsx';
-import CssPadding from './topics/CssPadding.jsx';
-import CssHeight from './topics/CssHeight.jsx';
-import CssWidth from './topics/CssWidth.jsx';
-import CssAlignment from './topics/CssAlignment.jsx';
-import CssTextDecoration from './topics/CssTextDecoration.jsx';
-import CssTextTransform from './topics/CssTextTransform.jsx';
-import CssTextSpacing from './topics/CssTextSpacing.jsx';
-import CssTextShadow from './topics/CssTextShadow.jsx';
-import CssFontFamily from './topics/CssFontFamily.jsx';
-import CssFontStyle from './topics/CssFontStyle.jsx';
-import CssFontSize from './topics/CssFontSize.jsx';
+import WhatIsCss from "./topics/WhatIsCss";
+import CssSyntax from "./topics/CssSyntax";
+import AddCss from "./topics/AddCss";
+import CssSelectors from "./topics/CssSelectors.jsx";
+import CssColors from "./topics/CssColors.jsx";
+import CssBackground from "./topics/CssBackground.jsx";
+import CssBorderStyle from "./topics/CssBorderStyle.jsx";
+import CssBorderWidth from "./topics/CssBorderWidth.jsx";
+import CssBorderColor from "./topics/CssBorderColor.jsx";
+import CssMargin from "./topics/CssMargin.jsx";
+import CssPadding from "./topics/CssPadding.jsx";
+import CssHeight from "./topics/CssHeight.jsx";
+import CssWidth from "./topics/CssWidth.jsx";
+import CssAlignment from "./topics/CssAlignment.jsx";
+import CssTextDecoration from "./topics/CssTextDecoration.jsx";
+import CssTextTransform from "./topics/CssTextTransform.jsx";
+import CssTextSpacing from "./topics/CssTextSpacing.jsx";
+import CssTextShadow from "./topics/CssTextShadow.jsx";
+import CssFontFamily from "./topics/CssFontFamily.jsx";
+import CssFontStyle from "./topics/CssFontStyle.jsx";
+import CssFontSize from "./topics/CssFontSize.jsx";
 
 const CssInfo = () => {
   const navigate = useNavigate();
   const { topic } = useParams();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const cssTopics = [
     { label: "What is CSS ?", path: "what-is-css" },
@@ -98,12 +98,12 @@ const CssInfo = () => {
   const handleNavigation = (path) => {
     if (path) {
       navigate(path);
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
   };
 
   const renderTopicList = () => (
-    <Box sx={{ width: 250, p: 2 }}>
+    <Box sx={{ width: 250, p: 2 , marginTop:"60px",}}>
       <Typography variant="h6" gutterBottom>
         🎨 CSS Topics
       </Typography>
@@ -112,14 +112,14 @@ const CssInfo = () => {
           <ListItem key={i} disablePadding sx={{ mb: 1 }}>
             <Button
               fullWidth
-              variant={topic === t.path ? 'contained' : 'outlined'}
+              variant={topic === t.path ? "contained" : "outlined"}
               onClick={() => {
                 handleNavigation(`/css/${t.path}`);
                 setDrawerOpen(false);
               }}
               sx={{
-                textTransform: 'none',
-                justifyContent: 'flex-start',
+                textTransform: "none",
+                justifyContent: "flex-start",
                 fontWeight: 500,
               }}
             >
@@ -132,15 +132,23 @@ const CssInfo = () => {
   );
 
   const currentIndex = cssTopics.findIndex((t) => t.path === topic);
-  const previousPath = currentIndex > 0 ? `/css/${cssTopics[currentIndex - 1].path}` : null;
-  const nextPath = currentIndex < cssTopics.length - 1 ? `/css/${cssTopics[currentIndex + 1].path}` : null;
+  const previousPath =
+    currentIndex > 0 ? `/css/${cssTopics[currentIndex - 1].path}` : null;
+  const nextPath =
+    currentIndex < cssTopics.length - 1
+      ? `/css/${cssTopics[currentIndex + 1].path}`
+      : null;
 
   return (
     <Grid container>
       {/* Mobile Header */}
       {isMobile && (
         <>
-          <Grid item xs={12} sx={{ p: 1, display: 'flex', alignItems: 'center' }}>
+          <Grid
+            item
+            xs={12}
+            sx={{ p: 1, display: "flex", alignItems: "center" }}
+          >
             <IconButton onClick={() => setDrawerOpen(true)}>
               <MenuIcon />
             </IconButton>
@@ -148,21 +156,51 @@ const CssInfo = () => {
               CSS Tutorial
             </Typography>
           </Grid>
-          <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+          <Drawer
+            anchor="left"
+            open={drawerOpen}
+            onClose={() => setDrawerOpen(false)}
+          >
             {renderTopicList()}
           </Drawer>
         </>
       )}
 
       {/* Desktop Sidebar */}
-      {!isMobile && (
-        <Grid item md={3} sx={{ p: 2 }}>
-          {renderTopicList()}
-        </Grid>
-      )}
+   {!isMobile && (
+  <Grid
+  item
+  md={3}
+  sx={{
+    height: "100vh",
+    position: "sticky",
+    top: 0,
+    overflowY: "auto",
+    p: 2,
+    pr: 1,
+
+    // ✅ Hide scrollbar in WebKit browsers (Chrome, Safari, Edge)
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
+
+    // ✅ Hide scrollbar in Firefox
+    scrollbarWidth: 'none', // Firefox-specific
+
+    // Optional: to prevent layout shift
+    msOverflowStyle: 'none', // Internet Explorer 10+
+
+    
+    
+  }}
+>
+  {renderTopicList()}
+</Grid>
+
+)}
 
       {/* Content */}
-      <Grid item xs={12} md={9} sx={{ p: 3 }}>
+      <Grid item xs={12} md={9} sx={{ p: 3 , marginTop:"76px",}}>
         {TopicComponent ? (
           <TopicComponent />
         ) : (
@@ -172,7 +210,11 @@ const CssInfo = () => {
         )}
 
         {/* Navigation Buttons */}
-        <Stack direction="row" spacing={2} sx={{ mt: 4, mb: 4, justifyContent: 'center' }}>
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ mt: 4, mb: 4, justifyContent: "center" }}
+        >
           <Button
             variant="outlined"
             color="primary"

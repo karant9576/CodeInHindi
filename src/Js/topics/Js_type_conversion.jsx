@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const Js_type_conversion = () => {
   return (
-    <Box sx={{ p: 2, maxWidth: 1000, mx: "auto" }}>
+    <Box sx={{ p: 2, maxWidth: 1000, mx: "auto", marginTop:"60px", }}>
       <Typography variant="h5" gutterBottom color="primary" fontWeight="bold">
         JavaScript Type Conversion
       </Typography>
