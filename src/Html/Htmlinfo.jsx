@@ -33,7 +33,6 @@ import Html_form_input_types from './topics/Html_form_Input_type';
 import Html_iframe from './topics/Html_iframe';
 import Html_audio from './topics/Html_audio';
 import Html_video from './topics/Html_video';
-// import more components as needed...
 
 const Htmlinfo = () => {
   const navigate = useNavigate();
@@ -65,28 +64,27 @@ const Htmlinfo = () => {
   const topicComponents = {
     introduction: Html_intro,
     tags: Html_tags,
-    'meta-tags': Html_meta_tags, 
-    'elements': Html_elements,
-     'attributes': Html_attributes,
-    formatting : Html_formatting,
-    'headings': Html_heading,
-    'anchor': Html_anchor, 
+    'meta-tags': Html_meta_tags,
+    elements: Html_elements,
+    attributes: Html_attributes,
+    formatting: Html_formatting,
+    headings: Html_heading,
+    anchor: Html_anchor,
     image: Html_image,
     list: Html_list,
     table: Html_table,
     form: Html_form,
-    'form-elements': Html_form_element, 
+    'form-elements': Html_form_element,
     'input-types': Html_form_input_types,
     iframe: Html_iframe,
     audio: Html_audio,
     video: Html_video,
-
   };
 
   const TopicComponent = topicComponents[topic];
 
   const renderTopicList = () => (
-    <Box sx={{ width: 250, p: 2 , maxWidth:900 }}>
+    <Box sx={{ width: 250, p: 2, maxWidth: 900 }}>
       <Typography variant="h6" gutterBottom>
         📘 HTML Topics
       </Typography>
@@ -98,6 +96,7 @@ const Htmlinfo = () => {
               variant={topic === t.path ? 'contained' : 'outlined'}
               onClick={() => {
                 navigate(`/html/${t.path}`);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 setDrawerOpen(false);
               }}
               sx={{
@@ -114,10 +113,16 @@ const Htmlinfo = () => {
     </Box>
   );
 
-  // 🆕 Dynamic Navigation Logic
   const currentIndex = htmlTopics.findIndex((t) => t.path === topic);
   const previousPath = currentIndex > 0 ? `/html/${htmlTopics[currentIndex - 1].path}` : null;
   const nextPath = currentIndex < htmlTopics.length - 1 ? `/html/${htmlTopics[currentIndex + 1].path}` : null;
+
+  const handleNavigation = (path) => {
+    if (path) {
+      navigate(path);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <Grid container>
@@ -150,17 +155,17 @@ const Htmlinfo = () => {
         {TopicComponent ? (
           <TopicComponent />
         ) : (
-          <Typography variant="body1">
-            कृपया कोई टॉपिक चुनें, और यहाँ उसका कंटेंट दिखाई देगा।
+          <Typography variant="body1" ml={4}>
+            कृपया कोई टॉपिक चुनें !
           </Typography>
         )}
 
-        {/* 🔁 Navigation Buttons */}
+        {/* Navigation Buttons */}
         <Stack direction="row" spacing={2} sx={{ mt: 4, mb: 4, justifyContent: 'center', gap: 2 }}>
           <Button
             variant="outlined"
             color="primary"
-            onClick={() => previousPath && navigate(previousPath)}
+            onClick={() => handleNavigation(previousPath)}
             disabled={!previousPath}
           >
             Previous
@@ -168,7 +173,7 @@ const Htmlinfo = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => nextPath && navigate(nextPath)}
+            onClick={() => handleNavigation(nextPath)}
             disabled={!nextPath}
           >
             Next

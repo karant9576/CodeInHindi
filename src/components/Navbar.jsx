@@ -104,7 +104,7 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
                       button
                       onClick={() => {
                         handleDrawerToggle();
-                        navigate(`/tutorials/${tutorial.toLowerCase()}`);
+                        navigate(`/${tutorial.toLowerCase()}`);
                       }}
                       sx={{ pl: 4, justifyContent: "flex-start" }}
                     >
@@ -183,18 +183,84 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
           </Typography>
 
           {/* Desktop Navigation */}
-          <Box
-            sx={{
-              display: { xs: "none", md: "flex" },
-              alignItems: "center",
-              gap: 2,
-              mr: 2,
-            }}
-          >
-            {navItems.map((item) =>
-              item === "Tutorials" ? (
-                <Box key={item}>
+          <Box sx={{ position: "relative" }}>
+            {/* Background Blur Overlay */}
+            {open && (
+              <Box
+                onClick={handleMenuClose}
+                sx={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  width: "100vw",
+                  height: "100vh",
+                  zIndex: 1, // lower than Menu but higher than page content
+                  backdropFilter: "blur(3px)",
+                  backgroundColor: "rgba(0, 0, 0, 0.2)",
+                }}
+              />
+            )}
+
+            {/* Nav Items */}
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                alignItems: "center",
+                gap: 2,
+                mr: 2,
+                position: "relative",
+                zIndex: 2, // keep navbar above the blur
+              }}
+            >
+              {navItems.map((item) =>
+                item === "Tutorials" ? (
+                  <Box key={item}>
+                    <Button
+                      sx={{
+                        color: darkMode ? "#fff" : "#000",
+                        fontWeight: 500,
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        borderBottom: "2px solid transparent",
+                        "&:hover": {
+                          color: "#6c63ff",
+                          borderBottom: "2px solid #6c63ff",
+                        },
+                      }}
+                      onClick={handleMenuOpen}
+                      id="tutorials-button"
+                    >
+                      {item}
+                    </Button>
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleMenuClose}
+                      MenuListProps={{
+                        "aria-labelledby": "tutorials-button",
+                      }}
+                    >
+                      {tutorialItems.map((tutorial) => (
+                        <MenuItem
+                          key={tutorial}
+                          onClick={() => {
+                            handleMenuClose();
+                            navigate(`/${tutorial.toLowerCase()}`);
+                          }}
+                          sx={{
+                            "&:hover": {
+                              color: "#6c63ff",
+                            },
+                          }}
+                        >
+                          {tutorial}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </Box>
+                ) : (
                   <Button
+                    key={item}
                     sx={{
                       color: darkMode ? "#fff" : "#000",
                       fontWeight: 500,
@@ -206,63 +272,20 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
                         borderBottom: "2px solid #6c63ff",
                       },
                     }}
-                    onClick={handleMenuOpen}
+                    onClick={() => {
+                      if (item === "Home") navigate("/");
+                      else if (item === "About") navigate("/about");
+                      else if (item === "Blog") navigate("/blog");
+                    }}
                   >
                     {item}
                   </Button>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleMenuClose}
-                    MenuListProps={{
-                      "aria-labelledby": "tutorials-button",
-                    }}
-                  >
-                    {tutorialItems.map((tutorial) => (
-                      <MenuItem
-                        key={tutorial}
-                        onClick={() => {
-                          handleMenuClose();
-                          navigate(`/tutorials/${tutorial.toLowerCase()}`);
-                        }}
-                        sx={{
-                          "&:hover": {
-                            color: "#6c63ff",
-                          },
-                        }}
-                      >
-                        {tutorial}
-                      </MenuItem>
-                    ))}
-                  </Menu>
-                </Box>
-              ) : (
-                <Button
-                  key={item}
-                  sx={{
-                    color: darkMode ? "#fff" : "#000",
-                    fontWeight: 500,
-                    textTransform: "none",
-                    fontSize: "1rem",
-                    borderBottom: "2px solid transparent",
-                    "&:hover": {
-                      color: "#6c63ff",
-                      borderBottom: "2px solid #6c63ff",
-                    },
-                  }}
-                  onClick={() => {
-                    if (item === "Home") navigate("/");
-                    else if (item === "About") navigate("/about");
-                    else if (item === "Blog") navigate("/blog");
-                  }}
-                >
-                  {item}
-                </Button>
-              )
-            )}
-            <IconButton onClick={onToggleTheme} color="inherit">
-              {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
-            </IconButton>
+                )
+              )}
+              <IconButton onClick={onToggleTheme} color="inherit">
+                {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+              </IconButton>
+            </Box>
           </Box>
 
           {/* Mobile Menu Icon */}

@@ -1,4 +1,4 @@
-import "./App.css";
+
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
@@ -52,7 +52,7 @@ function App() {
           {/* html routes */}
           <Route path="/html" element={<Htmlinfo />} />
            <Route path="/html/:topic" element={<Htmlinfo darkMode={darkMode} />} />
-
+           
           {/* css routes */}
           <Route path="/css" element={<CssInfo />} />
           <Route path="/css/:topic" element={<CssInfo />} />
@@ -63,7 +63,7 @@ function App() {
 
 
         </Routes>
-
+ 
         <Footer darkMode={darkMode} />
       </Router>
     </ThemeProvider>

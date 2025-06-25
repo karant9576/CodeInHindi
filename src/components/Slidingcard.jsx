@@ -96,7 +96,7 @@ const SlidingCards = ({ darkMode }) => {
             key={index}
             sx={{
               width: {
-                xs: "100%",
+                xs: "80%",
                 sm: "48%",
                 md: "31%",
                 lg: "20%",
@@ -119,6 +119,9 @@ const SlidingCards = ({ darkMode }) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
+                "&:hover .card-image": {
+                  transform: "translateY(-10px) rotate(360deg)",
+                },
               }}
             >
               <CardMedia
@@ -126,7 +129,12 @@ const SlidingCards = ({ darkMode }) => {
                 height="140"
                 image={item.image}
                 alt={item.title}
-                sx={{ objectFit: "contain", p: 2 }}
+                className="card-image"
+                sx={{
+                  objectFit: "contain",
+                  p: 2,
+                  transition: "transform 0.3s ease",
+                }}
               />
               <CardContent>
                 <Typography
@@ -159,7 +167,7 @@ const SlidingCards = ({ darkMode }) => {
                     },
                   }}
                 >
-                  Get Started
+                  Learn More
                 </Button>
               </CardContent>
             </Card>

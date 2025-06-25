@@ -15,29 +15,28 @@ import { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// ✅ Import your topic components here:
- import WhatIsCss from './topics/WhatIsCss';
- import CssSyntax from './topics/CssSyntax';
- import AddCss from './topics/AddCss';
- import CssSelectors from './topics/CssSelectors.jsx';
- import CssColors from './topics/CssColors.jsx';
- import CssBackground from './topics/CssBackground.jsx';
- import CssBorderStyle from './topics/CssBorderStyle.jsx';
- import CssBorderWidth from './topics/CssBorderWidth.jsx';
- import CssBorderColor from './topics/CssBorderColor.jsx';
- import CssMargin from './topics/CssMargin.jsx';
- import CssPadding from './topics/CssPadding.jsx';
- import CssHeight from './topics/CssHeight.jsx';
- import CssWidth from './topics/CssWidth.jsx';
- import CssAlignment from './topics/CssAlignment.jsx';
- import CssTextDecoration from './topics/CssTextDecoration.jsx';
- import CssTextTransform from './topics/CssTextTransform.jsx';
- import CssTextSpacing from './topics/CssTextSpacing.jsx';
- import CssTextShadow from './topics/CssTextShadow.jsx';
- import CssFontFamily from './topics/CssFontFamily.jsx';
- import CssFontStyle from './topics/CssFontStyle.jsx';
- import CssFontSize from './topics/CssFontSize.jsx';
-
+// ✅ Topic components
+import WhatIsCss from './topics/WhatIsCss';
+import CssSyntax from './topics/CssSyntax';
+import AddCss from './topics/AddCss';
+import CssSelectors from './topics/CssSelectors.jsx';
+import CssColors from './topics/CssColors.jsx';
+import CssBackground from './topics/CssBackground.jsx';
+import CssBorderStyle from './topics/CssBorderStyle.jsx';
+import CssBorderWidth from './topics/CssBorderWidth.jsx';
+import CssBorderColor from './topics/CssBorderColor.jsx';
+import CssMargin from './topics/CssMargin.jsx';
+import CssPadding from './topics/CssPadding.jsx';
+import CssHeight from './topics/CssHeight.jsx';
+import CssWidth from './topics/CssWidth.jsx';
+import CssAlignment from './topics/CssAlignment.jsx';
+import CssTextDecoration from './topics/CssTextDecoration.jsx';
+import CssTextTransform from './topics/CssTextTransform.jsx';
+import CssTextSpacing from './topics/CssTextSpacing.jsx';
+import CssTextShadow from './topics/CssTextShadow.jsx';
+import CssFontFamily from './topics/CssFontFamily.jsx';
+import CssFontStyle from './topics/CssFontStyle.jsx';
+import CssFontSize from './topics/CssFontSize.jsx';
 
 const CssInfo = () => {
   const navigate = useNavigate();
@@ -68,35 +67,40 @@ const CssInfo = () => {
     { label: "CSS font-family", path: "css-font-family" },
     { label: "CSS font-style", path: "css-font-style" },
     { label: "CSS font-size", path: "css-font-size" },
-    
   ];
 
-   const topicComponents = {
-     "what-is-css": WhatIsCss,
-     "css-syntax": CssSyntax,
-     "add-css": AddCss,
-     "css-selectors": CssSelectors,
-     "css-colors": CssColors,
-     "css-background": CssBackground,
-     "css-border-style": CssBorderStyle,
-     "css-border-width": CssBorderWidth,
-     "css-border-color": CssBorderColor,
-     "css-margin": CssMargin,
-     "css-padding": CssPadding,
-     "css-height": CssHeight,
-     "css-width": CssWidth,
-     "css-alignment": CssAlignment,
-     "css-text-decoration": CssTextDecoration,
-     "css-text-transform": CssTextTransform,
-     "css-text-spacing": CssTextSpacing,
-     "css-text-shadow": CssTextShadow,
-     "css-font-family": CssFontFamily,
-     "css-font-style": CssFontStyle,
-     "css-font-size": CssFontSize,
- 
-   };
+  const topicComponents = {
+    "what-is-css": WhatIsCss,
+    "css-syntax": CssSyntax,
+    "add-css": AddCss,
+    "css-selectors": CssSelectors,
+    "css-colors": CssColors,
+    "css-background": CssBackground,
+    "css-border-style": CssBorderStyle,
+    "css-border-width": CssBorderWidth,
+    "css-border-color": CssBorderColor,
+    "css-margin": CssMargin,
+    "css-padding": CssPadding,
+    "css-height": CssHeight,
+    "css-width": CssWidth,
+    "css-alignment": CssAlignment,
+    "css-text-decoration": CssTextDecoration,
+    "css-text-transform": CssTextTransform,
+    "css-text-spacing": CssTextSpacing,
+    "css-text-shadow": CssTextShadow,
+    "css-font-family": CssFontFamily,
+    "css-font-style": CssFontStyle,
+    "css-font-size": CssFontSize,
+  };
 
   const TopicComponent = topicComponents[topic];
+
+  const handleNavigation = (path) => {
+    if (path) {
+      navigate(path);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  };
 
   const renderTopicList = () => (
     <Box sx={{ width: 250, p: 2 }}>
@@ -110,7 +114,7 @@ const CssInfo = () => {
               fullWidth
               variant={topic === t.path ? 'contained' : 'outlined'}
               onClick={() => {
-                navigate(`/css/${t.path}`);
+                handleNavigation(`/css/${t.path}`);
                 setDrawerOpen(false);
               }}
               sx={{
@@ -162,8 +166,8 @@ const CssInfo = () => {
         {TopicComponent ? (
           <TopicComponent />
         ) : (
-          <Typography variant="body1">
-            कृपया कोई टॉपिक चुनें, और यहाँ उसका कंटेंट दिखाई देगा।
+          <Typography variant="body1" ml={4}>
+            कृपया कोई टॉपिक चुनें !
           </Typography>
         )}
 
@@ -172,7 +176,7 @@ const CssInfo = () => {
           <Button
             variant="outlined"
             color="primary"
-            onClick={() => previousPath && navigate(previousPath)}
+            onClick={() => handleNavigation(previousPath)}
             disabled={!previousPath}
           >
             Previous
@@ -180,7 +184,7 @@ const CssInfo = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => nextPath && navigate(nextPath)}
+            onClick={() => handleNavigation(nextPath)}
             disabled={!nextPath}
           >
             Next
