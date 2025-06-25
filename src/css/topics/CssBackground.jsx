@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 const CssBackground = () => {
   return (
     <Box sx={{ p: 2,  width: "100%", maxWidth: 900, margin: "auto" }}>
-      <Typography variant="h6" gutterBottom fontWeight="bold" color='primary'>
+      <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
         CSS Background Image
       </Typography>
 
