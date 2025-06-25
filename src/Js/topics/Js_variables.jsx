@@ -2,7 +2,29 @@ import { Box, Typography } from "@mui/material";
 
 const Js_variables = () => {
   return (
-    <Box sx={{ p: 2 , maxWidth: 1000, mx: "auto" }}>
+    <Box
+  sx={{
+    marginTop:"60px",
+    p: 2,
+    mx: "auto",
+    width: "100%",
+    maxWidth: {
+      xs: "100%",        // full width on small screens
+      sm: "100%",        // full width on medium screens
+      md: "1024px",      // 1024px on desktop
+      xl: "1280px",      // optional tweak for large screens
+      "2xl": "1440px",   // not natively supported, use media query if needed
+    },
+
+    // Optional: For 2560px custom screen size, use custom media query
+    '@media (min-width:2560px)': {
+      maxWidth: '1800px', // or whatever custom width you want
+    },
+     '@media (min-width:1024px)': {
+      maxWidth: '700px', // or whatever custom width you want
+    },
+  }}
+>
       <Typography variant="h5" gutterBottom fontWeight="bold" color="primary">
         JavaScript Variables
       </Typography>
@@ -26,9 +48,9 @@ const Js_variables = () => {
       </Typography>
 
       <Typography component="pre" sx={{ bgcolor: "#8CCDEB", p: 2, borderRadius: 1  , overflowX:'auto', whiteSpace:'pre'}}>
-{`var name = "Rahul Kumar Rajput";
+{`var name = "Karan Thakur";
 let age = 23;
-var address = "454t Jaipur Rajasthan";`}
+var address = "732 Bihar India ";`}
       </Typography>
 
       <Typography paragraph mt={2}>

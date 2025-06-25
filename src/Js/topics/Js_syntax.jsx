@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const Js_syntax = () => {
   return (
-    <Box sx={{ p: 2 ,  maxWidth: 1000, mx: "auto" }}>
+    <Box sx={{ p: 2 ,  maxWidth: 1000, mx: "auto" , marginTop:"60px",}}>
       <Typography variant="h5" gutterBottom fontWeight="bold" color="primary">
         JavaScript Syntax
       </Typography>
@@ -68,7 +68,7 @@ document.write("Hello JS");`}
 </html>`}
       </Typography>
 
-      <Typography paragraph mt={2}>
+      <Typography paragraph mt={2} >
         ⚠️ <strong>Note:</strong> JavaScript एक case-sensitive भाषा है। यानी <code>name</code> और <code>Name</code> दो अलग-अलग variables माने जाएंगे।
       </Typography>
 
@@ -81,7 +81,7 @@ document.write("Hello JS");`}
         JavaScript में कुछ modifications को restrict करने के लिए `"use strict"` directive का उपयोग किया जाता है। इसे string के रूप में script के सबसे ऊपर लिखा जाता है।
       </Typography>
 
-      <Typography component="pre" sx={{ bgcolor: '#8CCDEB', p: 2, borderRadius: 1 }}>
+      <Typography component="pre" sx={{ bgcolor: '#8CCDEB', p: 2, borderRadius: 1,overflowX: 'auto', whiteSpace: 'pre' }}>
 {`<script type="text/javascript">
   'use strict';
   document.write("Hello JavaScript");
