@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const Js_comments = () => {
   return (
-    <Box sx={{ p: 2 , maxWidth: 1000, mx: "auto" , marginTop:"60px",}}>
+    <Box sx={{ p: 2 , maxWidth: 1000, mx: "auto" , marginTop:"-1px",}}>
       <Typography variant="h5" gutterBottom fontWeight="bold" color="primary">
         JavaScript Comments
       </Typography>

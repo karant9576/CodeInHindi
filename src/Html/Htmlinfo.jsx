@@ -84,7 +84,7 @@ const Htmlinfo = () => {
   const TopicComponent = topicComponents[topic];
 
   const renderTopicList = () => (
-    <Box sx={{ width: 250, p: 2, maxWidth: 900, marginTop:"60px", }}>
+    <Box sx={{ width: 250, p: 2, maxWidth: 900, }}>
       <Typography variant="h6" gutterBottom>
         📘 HTML Topics
       </Typography>
@@ -189,7 +189,7 @@ const Htmlinfo = () => {
 )}
 
       {/* Content */}
-      <Grid item xs={12} md={9} sx={{ p: 3 , marginTop:"75px", }}>
+      <Grid item xs={12} md={9} sx={{ p: 3  }}>
         {TopicComponent ? (
           <TopicComponent />
         ) : (
@@ -202,7 +202,7 @@ const Htmlinfo = () => {
         <Stack
           direction="row"
           spacing={2}
-          sx={{ mt: 4, mb: 4, justifyContent: "center", gap: 2 }}
+          sx={{ mt: 4, mb: 4, justifyContent: "center", }}
         >
           <Button
             variant="outlined"

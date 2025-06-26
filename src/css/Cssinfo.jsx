@@ -103,7 +103,7 @@ const CssInfo = () => {
   };
 
   const renderTopicList = () => (
-    <Box sx={{ width: 250, p: 2 , marginTop:"60px",}}>
+    <Box sx={{ width: 250, p: 2 , maxWidth: 900,}}>
       <Typography variant="h6" gutterBottom>
         🎨 CSS Topics
       </Typography>
@@ -152,7 +152,7 @@ const CssInfo = () => {
             <IconButton onClick={() => setDrawerOpen(true)}>
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" sx={{ ml: 1, mt: 1 }}>
+            <Typography variant="h6" sx={{ ml: 1, mt: 1 , display:'block',}}>
               CSS Tutorial
             </Typography>
           </Grid>
@@ -200,7 +200,7 @@ const CssInfo = () => {
 )}
 
       {/* Content */}
-      <Grid item xs={12} md={9} sx={{ p: 3 , marginTop:"76px",}}>
+      <Grid item xs={12} md={9} sx={{ p: 3 }}>
         {TopicComponent ? (
           <TopicComponent />
         ) : (
@@ -228,6 +228,7 @@ const CssInfo = () => {
             color="primary"
             onClick={() => handleNavigation(nextPath)}
             disabled={!nextPath}
+            
           >
             Next
           </Button>

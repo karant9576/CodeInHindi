@@ -121,6 +121,7 @@ const SlidingCards = ({ darkMode }) => {
                 justifyContent: "space-between",
                 "&:hover .card-image": {
                   transform: "translateY(-10px) rotate(360deg)",
+                  transition: "transform 1s ease",
                 },
               }}
             >
