@@ -279,7 +279,7 @@ const Jsinfo = () => {
   const TopicComponent = topicComponents[topic];
 
   const renderTopicList = () => (
-    <Box sx={{ width: 250, p: 2 ,mt:8, }}>
+    <Box sx={{ width: 250, p: 2 ,}}>
       <Typography variant="h6" gutterBottom>
         📘 JavaScript Topics
       </Typography>
@@ -377,7 +377,7 @@ const Jsinfo = () => {
 
 
       {/* Content */}
-      <Grid item xs={12} md={9} sx={{ p: 3 }}>
+      <Grid item xs={12} md={9} sx={{ p: 3  }}>
         {TopicComponent ? (
           <TopicComponent />
         ) : (

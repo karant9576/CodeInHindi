@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const Js_data_types = () => {
   return (
-    <Box sx={{ p: 2, maxWidth: 1000, mx: "auto" , marginTop:"60px",}}>
+    <Box sx={{ p: 2, maxWidth: 1000, mx: "auto" , marginTop:"-1px",}}>
       <Typography variant="h5" gutterBottom color="primary" fontWeight="bold">
         JavaScript Data Types
       </Typography>

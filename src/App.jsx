@@ -11,6 +11,7 @@ import Blog from "./components/Blog";
 import Htmlinfo from "./Html/Htmlinfo";
 import CssInfo from "./css/Cssinfo";
 import Jsinfo from "./Js/Jsinfo";
+import Reactinfo from "./reactjs/Reactinfo.jsx";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -60,7 +61,8 @@ function App() {
           {/* js routes */}
           <Route path="/javascript" element={<Jsinfo />} />
           <Route path="/javascript/:topic" element={<Jsinfo  darkMode={darkMode}/>} />
-
+         {/* React js */}
+         <Route path="/react" element={<Reactinfo/>}/>
 
         </Routes>
  

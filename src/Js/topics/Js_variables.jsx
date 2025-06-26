@@ -3,28 +3,7 @@ import { Box, Typography } from "@mui/material";
 const Js_variables = () => {
   return (
     <Box
-  sx={{
-    marginTop:"60px",
-    p: 2,
-    mx: "auto",
-    width: "100%",
-    maxWidth: {
-      xs: "100%",        // full width on small screens
-      sm: "100%",        // full width on medium screens
-      md: "1024px",      // 1024px on desktop
-      xl: "1280px",      // optional tweak for large screens
-      "2xl": "1440px",   // not natively supported, use media query if needed
-    },
-
-    // Optional: For 2560px custom screen size, use custom media query
-    '@media (min-width:2560px)': {
-      maxWidth: '1800px', // or whatever custom width you want
-    },
-     '@media (min-width:1024px)': {
-      maxWidth: '700px', // or whatever custom width you want
-    },
-  }}
->
+  sx={{ p: 2,  maxWidth: 1000, mx: "auto" , marginTop:"-1px",}}>
       <Typography variant="h5" gutterBottom fontWeight="bold" color="primary">
         JavaScript Variables
       </Typography>

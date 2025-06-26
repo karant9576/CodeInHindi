@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 const WhatIsCss = () => {
   return (
-    <Box sx={{ p: 2,   maxWidth: 800, margin: 'auto' }}>
+    <Box sx={{ p: 2,   maxWidth: 1000, margin: 'auto' }}>
       <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
         CSS क्या है?
       </Typography>

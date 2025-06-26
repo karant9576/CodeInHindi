@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 const Js_intro = () => {
   return (
-    <Box className="doc" sx={{ p: 2,  maxWidth: 1000, mx: "auto" , marginTop:"60px",}}>
+    <Box className="doc" sx={{ p: 2,  maxWidth: 1000, mx: "auto" , marginTop:"-1px",}}>
     <Box >
       <Typography variant="h5" gutterBottom fontWeight="bold" color="primary">
         JavaScript introduction
