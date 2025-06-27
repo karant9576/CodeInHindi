@@ -161,11 +161,11 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
         />
       )}
       <AppBar
-        position="sticky"
+        position="static"
         color="transparent"
         elevation={0}
         sx={{
-          background: "transparent",
+          background: "#transparent",
           color: darkMode ? "#fff" : "#000",
           zIndex: 4,
         }}
@@ -173,9 +173,9 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
         <Toolbar
           sx={{
             justifyContent: "space-between",
-            alignItems: "center",
-            py: { xs: 2, sm: 2, md: 3 },
-            px: { xs: 3, sm: 4, md: 10 },
+            py: { xs: 1, sm: 2, md: 3 },
+            px: { xs: 1, sm: 4, md: 10 },
+
           }}
         >
           <Typography

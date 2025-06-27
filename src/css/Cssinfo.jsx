@@ -98,7 +98,7 @@ const CssInfo = () => {
   const handleNavigation = (path) => {
     if (path) {
       navigate(path);
-      window.scrollTo({ top: 0, behavior: "instant" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
