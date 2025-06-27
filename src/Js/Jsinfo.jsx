@@ -23,19 +23,17 @@ import Js_comments from "./topics/Js_comments.jsx";
 import Js_operators from "./topics/Js_operators.jsx";
 import Js_data_types from "./topics/Js_data_types.jsx";
 import Js_type_conversion from "./topics/Js_type_conversion.jsx";
-
-// // Control Statements
-// import Js_if_else from './topics/Js_if_else.jsx';
-// import Js_while_loop from './topics/Js_while_loop.jsx';
-// import Js_do_while_loop from './topics/Js_do_while_loop.jsx';
-// import Js_for_loop from './topics/Js_for_loop.jsx';
-// import Js_for_in_loop from './topics/Js_for_in_loop.jsx';
-// import Js_for_of_loop from './topics/Js_for_of_loop.jsx';
-// import Js_labeled_statement from './topics/Js_labeled_statement.jsx';
-// import Js_continue_statement from './topics/Js_continue_statement.jsx';
-// import Js_break_statement from './topics/Js_break_statement.jsx';
-// import Js_switch_loop from './topics/Js_switch_loop.jsx';
-// import Js_exception_handling from './topics/Js_exception_handling.jsx';
+import Js_if_else from "./topics/Js_if_else.jsx";
+import Js_while_loop from './topics/Js_while_loop.jsx';
+import Js_do_while_loop from './topics/Js_do_while_loop.jsx';
+import Js_for_loop from './topics/Js_for_loop.jsx';
+import Js_for_in_loop from './topics/Js_for_in_loop.jsx';
+import Js_for_of_loop from './topics/Js_for_of_loop.jsx';
+import Js_labeled_statement from './topics/Js_labeled_statement.jsx';
+import Js_continue_statement from './topics/Js_continue_statement.jsx';
+import Js_break_statement from './topics/Js_break_statement.jsx';
+import Js_switch_loop from './topics/Js_switch_loop.jsx';
+import Js_exception_handling from './topics/Js_exception_handling.jsx';
 // import Js_try_catch from './topics/Js_try_catch.jsx';
 // import Js_try_catch_finally from './topics/Js_try_catch_finally.jsx';
 // import Js_throw from './topics/Js_throw.jsx';
@@ -205,18 +203,18 @@ const Jsinfo = () => {
     "js-data-types": Js_data_types,
     "js-type-conversion": Js_type_conversion,
 
-    // // Control Statements
-    // 'js-if-else': Js_if_else,
-    // 'js-while-loop': Js_while_loop,
-    // 'js-do-while-loop': Js_do_while_loop,
-    // 'js-for-loop': Js_for_loop,
-    // 'js-for-in-loop': Js_for_in_loop,
-    // 'js-for-of-loop': Js_for_of_loop,
-    // 'js-labeled-statement': Js_labeled_statement,
-    // 'js-continue-statement': Js_continue_statement,
-    // 'js-break-statement': Js_break_statement,
-    // 'js-switch-loop': Js_switch_loop,
-    // 'js-exception-handling': Js_exception_handling,
+     // Control Statements
+    'js-if-else': Js_if_else,
+    'js-while-loop': Js_while_loop,
+    'js-do-while-loop': Js_do_while_loop,
+    'js-for-loop': Js_for_loop,
+    'js-for-in-loop': Js_for_in_loop,
+    'js-for-of-loop': Js_for_of_loop,
+    'js-labeled-statement': Js_labeled_statement,
+    'js-continue-statement': Js_continue_statement,
+    'js-break-statement': Js_break_statement,
+    'js-switch-loop': Js_switch_loop,
+    'js-exception-handling': Js_exception_handling,
     // 'js-try-catch': Js_try_catch,
     // 'js-try-catch-finally': Js_try_catch_finally,
     // 'js-throw': Js_throw,
@@ -277,6 +275,12 @@ const Jsinfo = () => {
   };
 
   const TopicComponent = topicComponents[topic];
+  const handleNavigation = (path) => {
+    if (path) {
+      navigate(path);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const renderTopicList = () => (
     <Box sx={{ width: 250, p: 2 ,}}>
@@ -308,10 +312,8 @@ const Jsinfo = () => {
   );
 
   const currentIndex = jsTopics.findIndex((t) => t.path === topic);
-  const previousPath =
-    currentIndex > 0 ? `/javascript/${jsTopics[currentIndex - 1].path}` : null;
-  const nextPath =
-    currentIndex < jsTopics.length - 1
+  const previousPath =currentIndex > 0 ? `/javascript/${jsTopics[currentIndex - 1].path}` : null;
+  const nextPath =currentIndex < jsTopics.length - 1
       ? `/javascript/${jsTopics[currentIndex + 1].path}`
       : null;
 
@@ -395,7 +397,7 @@ const Jsinfo = () => {
           <Button
             variant="outlined"
             color="primary"
-            onClick={() => previousPath && navigate(previousPath)}
+            onClick={() =>  handleNavigation(previousPath)}
             disabled={!previousPath}
           >
             Previous
@@ -403,7 +405,7 @@ const Jsinfo = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => nextPath && navigate(nextPath)}
+            onClick={() => handleNavigation(nextPath)}
             disabled={!nextPath}
           >
             Next
