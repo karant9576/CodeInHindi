@@ -6,8 +6,11 @@ import {
   Typography,
   CardMedia,
   Button,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import mongoLogo from "../assets/mongoDB.webp";
 
 const cardData = [
@@ -33,60 +36,62 @@ const cardData = [
     title: "React",
     description: "Build modern UIs with React.",
     image: "https://cdn-icons-png.flaticon.com/512/1126/1126012.png",
-    path: "/react",
+    path: "",///react
   },
   {
     title: "Bootstrap",
     description: "Create responsive websites with Bootstrap.",
     image: "https://cdn-icons-png.flaticon.com/512/5968/5968672.png",
-    path: "/bootstrap",
+    path: "",///bootstrap
   },
   {
     title: "Node.js",
     description: "Run JavaScript on the server side.",
     image: "https://cdn-icons-png.flaticon.com/512/919/919825.png",
-    path: "/nodejs",
+    path: "",///nodejs
   },
   {
     title: "MongoDB",
     description: "Use NoSQL database for scalability.",
     image: mongoLogo,
-    path: "/mongodb",
+    path: "",///mongodb
   },
   {
     title: "Git",
     description: "Version control your code efficiently.",
     image: "https://cdn-icons-png.flaticon.com/512/2111/2111288.png",
-    path: "/git",
+    path: "",// /git
   },
   {
     title: "Python",
     description: "Write clean and powerful scripts.",
     image: "https://cdn-icons-png.flaticon.com/512/5968/5968350.png",
-    path: "/python",
+    path: "",///python
   },
   {
     title: "MySQL",
     description: "Manage relational databases easily.",
     image: "https://cdn-icons-png.flaticon.com/512/919/919836.png",
-    path: "/mysql",
+    path: "",///mysql
   },
   {
     title: "MySQL",
     description: "Manage relational databases easily.",
     image: "https://cdn-icons-png.flaticon.com/512/919/919836.png",
-    path: "/mysql2",
+    path: "",///mysql2
   },
   {
     title: "MySQL",
     description: "Manage relational databases easily.",
     image: "https://cdn-icons-png.flaticon.com/512/919/919836.png",
-    path: "/mysql3",
+    path: "",///mysql3
   },
 ];
 
 const SlidingCards = ({ darkMode }) => {
-  const navigate = useNavigate(); // Add this
+  const navigate = useNavigate();
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   return (
     <Box sx={{ px: { xs: 2, md: 5 }, py: 6 }}>
@@ -157,7 +162,17 @@ const SlidingCards = ({ darkMode }) => {
                 <Button
                   fullWidth
                   variant="contained"
-                  onClick={() => navigate(item.path)}
+                  onClick={() => {
+                    try {
+                      if (!item.path || item.path.trim() === "") {
+                        throw new Error("Content not available");
+                      }
+                      navigate(item.path);
+                    } catch (error) {
+                      setSnackbarMessage(error.message);
+                      setSnackbarOpen(true);
+                    }
+                  }}
                   sx={{
                     backgroundColor: "#6c63ff",
                     color: "#fff",
@@ -175,6 +190,22 @@ const SlidingCards = ({ darkMode }) => {
           </Box>
         ))}
       </Grid>
+
+      {/* Snackbar for error message */}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={1000}
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setSnackbarOpen(false)}
+          severity="error"
+          sx={{ width: "100%" }}
+        >
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

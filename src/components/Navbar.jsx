@@ -27,13 +27,13 @@ const tutorialItems = [
   "HTML",
   "CSS",
   "JavaScript",
-  "React",
-  "Bootstrap",
-  "Node.js",
-  "MongoDB",
-  "Git",
-  "Python",
-  "MySQL",
+  // "React",
+  // "Bootstrap",
+  // "Node.js",
+  // "MongoDB",
+  // "Git",
+  // "Python",
+  // "MySQL",
 ];
 
 const Navbar = ({ darkMode, onToggleTheme }) => {

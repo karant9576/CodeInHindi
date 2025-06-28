@@ -34,14 +34,14 @@ import Js_continue_statement from './topics/Js_continue_statement.jsx';
 import Js_break_statement from './topics/Js_break_statement.jsx';
 import Js_switch_loop from './topics/Js_switch_loop.jsx';
 import Js_exception_handling from './topics/Js_exception_handling.jsx';
-// import Js_try_catch from './topics/Js_try_catch.jsx';
-// import Js_try_catch_finally from './topics/Js_try_catch_finally.jsx';
-// import Js_throw from './topics/Js_throw.jsx';
+import Js_try_catch from './topics/Js_try_catch.jsx';
+import Js_try_catch_finally from './topics/Js_try_catch_finally.jsx';
+import Js_throw from './topics/Js_throw.jsx';
 
 // // Arrays
-// import Js_array from './topics/Js_array.jsx';
-// import Js_multidimensional_array from './topics/Js_multidimensional_array.jsx';
-// import Js_array_functions from './topics/Js_array_functions.jsx';
+import Js_array from './topics/Js_array.jsx';
+import Js_multidimensional_array from './topics/Js_multidimensional_array.jsx';
+import Js_array_functions from './topics/Js_array_functions.jsx';
 
 // // Strings
 // import Js_string from './topics/Js_string.jsx';
@@ -215,14 +215,14 @@ const Jsinfo = () => {
     'js-break-statement': Js_break_statement,
     'js-switch-loop': Js_switch_loop,
     'js-exception-handling': Js_exception_handling,
-    // 'js-try-catch': Js_try_catch,
-    // 'js-try-catch-finally': Js_try_catch_finally,
-    // 'js-throw': Js_throw,
+    'js-try-catch': Js_try_catch,
+    'js-try-catch-finally': Js_try_catch_finally,
+    'js-throw': Js_throw,
 
-    // // Arrays
-    // 'js-array': Js_array,
-    // 'js-multidimensional-array': Js_multidimensional_array,
-    // 'js-array-functions': Js_array_functions,
+     // Arrays
+    'js-array': Js_array,
+    'js-multidimensional-array': Js_multidimensional_array,
+    'js-array-functions': Js_array_functions,
 
     // // Strings
     // 'js-string': Js_string,
