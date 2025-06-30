@@ -103,7 +103,7 @@ const CssInfo = () => {
   };
 
   const renderTopicList = () => (
-    <Box sx={{ width: 250, p: 2 , maxWidth: 900,}}>
+    <Box sx={{ width: 300, p: 2 , maxWidth: 900,}}>
       <Typography variant="h6" gutterBottom>
         🎨 CSS Topics
       </Typography>
