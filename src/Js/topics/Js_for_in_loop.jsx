@@ -53,8 +53,8 @@ for (let index in string) {
       </Typography>
       <Typography sx={{bgcolor: '#8CCDEB', p: 2, borderRadius: 1 ,overflowX:'auto',whiteSpace:'pre'}} >
 {`let object = {
-  name: 'Rahul Rajput',
-  age: 54,
+  name: 'Karan Thakur',
+  age: 20,
   designation: 'Web Developer'
 };
 

@@ -144,7 +144,12 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
   );
 
   return (
-    <Box sx={{ color: darkMode ? "#fff" : "#000", transition: "all 0.4s ease" }}>
+    <Box sx={{
+      width: "100%",
+      overflowX: "hidden",
+      color: darkMode ? "#fff" : "#000",
+      transition: "all 0.4s ease",
+    }}>
       {open && (
         <Box
           onClick={handleMenuClose}
@@ -185,6 +190,7 @@ const Navbar = ({ darkMode, onToggleTheme }) => {
               fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.6rem" },
               letterSpacing: 1,
               flexGrow: { xs: 1, md: 0 },
+             
             }}
           >
             CodeInHindi

@@ -44,53 +44,53 @@ import Js_multidimensional_array from './topics/Js_multidimensional_array.jsx';
 import Js_array_functions from './topics/Js_array_functions.jsx';
 
 // // Strings
-// import Js_string from './topics/Js_string.jsx';
-// import Js_string_functions from './topics/Js_string_functions.jsx';
+import Js_string from './topics/Js_string.jsx';
+import Js_string_functions from './topics/Js_string_functions.jsx';
 
 // // Functions
-// import Js_function from './topics/Js_function.jsx';
-// import Js_parameterized_function from './topics/Js_parameterized_function.jsx';
-// import Js_var_length_arg_function from './topics/Js_var_length_arg_function.jsx';
-// import Js_anonymous_function from './topics/Js_anonymous_function.jsx';
-// import Js_arrow_function from './topics/Js_arrow_function.jsx';
-// import Js_callback_function from './topics/Js_callback_function.jsx';
-// import Js_recursive_function from './topics/Js_recursive_function.jsx';
+import Js_function from './topics/Js_function.jsx';
+import Js_parameterized_function from './topics/Js_parameterized_function.jsx';
+import Js_var_length_arg_function from './topics/Js_var_length_arg_function.jsx';
+import Js_anonymous_function from './topics/Js_anonymous_function.jsx';
+import Js_arrow_function from './topics/Js_arrow_function.jsx';
+import Js_callback_function from './topics/Js_callback_function.jsx';
+import Js_recursive_function from './topics/Js_recursive_function.jsx';
 
 // // BOM
-// import Js_bom from './topics/Js_bom.jsx';
-// import Js_window_object from './topics/Js_window_object.jsx';
-// import Js_history_object from './topics/Js_history_object.jsx';
-// import Js_screen_object from './topics/Js_screen_object.jsx';
-// import Js_navigator_object from './topics/Js_navigator_object.jsx';
-// import Js_location_object from './topics/Js_location_object.jsx';
+import Js_bom from './topics/Js_bom.jsx';
+import Js_window_object from './topics/Js_window_object.jsx';
+import Js_history_object from './topics/Js_history_object.jsx';
+import Js_screen_object from './topics/Js_screen_object.jsx';
+import Js_navigator_object from './topics/Js_navigator_object.jsx';
+import Js_location_object from './topics/Js_location_object.jsx';
 
 // // DOM
-// import Js_dom from './topics/Js_dom.jsx';
-// import Js_dom_elements from './topics/Js_dom_elements.jsx';
-// import Js_innerhtml_innertext from './topics/Js_innerhtml_innertext.jsx';
-// import Js_events from './topics/Js_events.jsx';
-// import Js_events_handling from './topics/Js_events_handling.jsx';
-// import Js_dom_event_listener from './topics/Js_dom_event_listener.jsx';
+import Js_dom from './topics/Js_dom.jsx';
+import Js_dom_elements from './topics/Js_dom_elements.jsx';
+import Js_innerhtml_innertext from './topics/Js_innerhtml_innertext.jsx';
+import Js_events from './topics/Js_events.jsx';
+import Js_events_handling from './topics/Js_events_handling.jsx';
+import Js_dom_event_listener from './topics/Js_dom_event_listener.jsx';
 // import Js_simple_calculator from './topics/Js_simple_calculator.jsx';
 
 // // Date
-// import Js_date from './topics/Js_date.jsx';
-// import Js_date_format from './topics/Js_date_format.jsx';
+import Js_date from './topics/Js_date.jsx';
+import Js_date_format from './topics/Js_date_format.jsx';
 
 // // Objects
-// import Js_object from './topics/Js_object.jsx';
-// import Js_object_properties from './topics/Js_object_properties.jsx';
-// import Js_object_methods from './topics/Js_object_methods.jsx';
-// import Js_object_accessors from './topics/Js_object_accessors.jsx';
-// import Js_object_constructor from './topics/Js_object_constructor.jsx';
-// import Js_object_prototype from './topics/Js_object_prototype.jsx';
+import Js_object from './topics/Js_object.jsx';
+import Js_object_properties from './topics/Js_object_properties.jsx';
+import Js_object_methods from './topics/Js_object_methods.jsx';
+import Js_object_accessors from './topics/Js_object_accessors.jsx';
+import Js_object_constructor from './topics/Js_object_constructor.jsx';
+import Js_object_prototype from './topics/Js_object_prototype.jsx';
 
 // // Classes / OOP
-// import Js_classes from './topics/Js_classes.jsx';
-// import Js_class_set_get from './topics/Js_class_set_get.jsx';
-// import Js_class_prototype_guide from './topics/Js_class_prototype_guide.jsx';
-// import Js_class_static from './topics/Js_class_static.jsx';
-// import Js_inheritance from './topics/Js_inheritance.jsx';
+import Js_classes from './topics/Js_classes.jsx';
+import Js_class_set_get from './topics/Js_class_set_get.jsx';
+import Js_class_prototype_guide from './topics/Js_class_prototype_guide.jsx';
+import Js_class_static from './topics/Js_class_static.jsx';
+import Js_inheritance from './topics/Js_inheritance.jsx';
 
 const Jsinfo = () => {
   const navigate = useNavigate();
@@ -160,7 +160,7 @@ const Jsinfo = () => {
     { label: "Js Events ", path: "js-events" },
     { label: "Js Events Handling ", path: "js-events-handling" },
     { label: "Js DOM EventListener ", path: "js-dom-event-listener" },
-    { label: "Js Making Simple Calculator", path: "js-simple-calculator" },
+    // { label: "Js Making Simple Calculator", path: "js-simple-calculator" },
 
     // Date
     { label: "Js Date ", path: "js-date" },
@@ -177,11 +177,11 @@ const Jsinfo = () => {
     // Classes
     { label: "Js Classes  | Js OOP Concept ", path: "js-classes" },
     {
-      label: "Essential Tips for Using Js Class Setter and Getter Method ",
+      label: "Js Class Setter and Getter Method ",
       path: "js-class-set-get",
     },
     {
-      label: "A Comprehensive Guide to Js Class Prototypes ",
+      label: "Js Class Prototypes ",
       path: "js-class-prototype-guide",
     },
     {
@@ -224,54 +224,54 @@ const Jsinfo = () => {
     'js-multidimensional-array': Js_multidimensional_array,
     'js-array-functions': Js_array_functions,
 
-    // // Strings
-    // 'js-string': Js_string,
-    // 'js-string-functions': Js_string_functions,
+    // Strings
+    'js-string': Js_string,
+    'js-string-functions': Js_string_functions,
 
     // // Functions
-    // 'js-function': Js_function,
-    // 'js-parameterized-function': Js_parameterized_function,
-    // 'js-var-length-arg-function': Js_var_length_arg_function,
-    // 'js-anonymous-function': Js_anonymous_function,
-    // 'js-arrow-function': Js_arrow_function,
-    // 'js-callback-function': Js_callback_function,
-    // 'js-recursive-function': Js_recursive_function,
+    'js-function': Js_function,
+    'js-parameterized-function': Js_parameterized_function,
+    'js-var-length-arg-function': Js_var_length_arg_function,
+    'js-anonymous-function': Js_anonymous_function,
+    'js-arrow-function': Js_arrow_function,
+    'js-callback-function': Js_callback_function,
+    'js-recursive-function': Js_recursive_function,
 
     // // BOM
-    // 'js-bom': Js_bom,
-    // 'js-window-object': Js_window_object,
-    // 'js-history-object': Js_history_object,
-    // 'js-screen-object': Js_screen_object,
-    // 'js-navigator-object': Js_navigator_object,
-    // 'js-location-object': Js_location_object,
+    'js-bom': Js_bom,
+    'js-window-object': Js_window_object,
+    'js-history-object': Js_history_object,
+    'js-screen-object': Js_screen_object,
+    'js-navigator-object': Js_navigator_object,
+    'js-location-object': Js_location_object,
 
     // // DOM
-    // 'js-dom': Js_dom,
-    // 'js-dom-elements': Js_dom_elements,
-    // 'js-innerhtml-innertext': Js_innerhtml_innertext,
-    // 'js-events': Js_events,
-    // 'js-events-handling': Js_events_handling,
-    // 'js-dom-event-listener': Js_dom_event_listener,
+    'js-dom': Js_dom,
+    'js-dom-elements': Js_dom_elements,
+    'js-innerhtml-innertext': Js_innerhtml_innertext,
+    'js-events': Js_events,
+    'js-events-handling': Js_events_handling,
+    'js-dom-event-listener': Js_dom_event_listener,
     // 'js-simple-calculator': Js_simple_calculator,
 
     // // Date
-    // 'js-date': Js_date,
-    // 'js-date-format': Js_date_format,
+    'js-date': Js_date,
+    'js-date-format': Js_date_format,
 
     // // Objects
-    // 'js-object': Js_object,
-    // 'js-object-properties': Js_object_properties,
-    // 'js-object-methods': Js_object_methods,
-    // 'js-object-accessors': Js_object_accessors,
-    // 'js-object-constructor': Js_object_constructor,
-    // 'js-object-prototype': Js_object_prototype,
+    'js-object': Js_object,
+    'js-object-properties': Js_object_properties,
+    'js-object-methods': Js_object_methods,
+    'js-object-accessors': Js_object_accessors,
+    'js-object-constructor': Js_object_constructor,
+    'js-object-prototype': Js_object_prototype,
 
     // // Classes / OOP
-    // 'js-classes': Js_classes,
-    // 'js-class-set-get': Js_class_set_get,
-    // 'js-class-prototype-guide': Js_class_prototype_guide,
-    // 'js-class-static': Js_class_static,
-    // 'js-inheritance': Js_inheritance,
+    'js-classes': Js_classes,
+    'js-class-set-get': Js_class_set_get,
+    'js-class-prototype-guide': Js_class_prototype_guide,
+    'js-class-static': Js_class_static,
+    'js-inheritance': Js_inheritance,
   };
 
   const TopicComponent = topicComponents[topic];
@@ -283,7 +283,7 @@ const Jsinfo = () => {
   };
 
   const renderTopicList = () => (
-    <Box sx={{ width: 250, p: 2 ,}}>
+    <Box sx={{ width: 300, p: 2 ,}}>
       <Typography variant="h6" gutterBottom>
         📘 JavaScript Topics
       </Typography>
