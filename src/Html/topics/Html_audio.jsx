@@ -2,8 +2,8 @@ import { Box, Typography } from "@mui/material";
 
 const Html_audio = () => {
   return (
-    <Box sx={{ p: 2,  maxWidth: '900px', margin: 'auto' }}>
-      <Typography variant="h5" gutterBottom>
+    <Box sx={{ p: 2,   maxWidth: 1000, margin: 'auto'}}>
+      <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
         HTML Audio in Hindi
       </Typography>
 

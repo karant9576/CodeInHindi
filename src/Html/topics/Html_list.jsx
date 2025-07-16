@@ -2,8 +2,8 @@ import { Box, Typography } from '@mui/material';
 
 const Html_list = () => {
   return (
-    <Box sx={{ p: 2, maxWidth: "900px", mx: "auto" }}>
-      <Typography variant="h4" color="primary" gutterBottom>
+    <Box sx={{ p: 2,   maxWidth: 1000, margin: 'auto'}}>
+      <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
         HTML List 
       </Typography>
 

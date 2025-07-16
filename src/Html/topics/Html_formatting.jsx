@@ -11,11 +11,11 @@ import {
 
 const Html_formatting = () => {
   return (
-    <Box sx={{  p: 2, width: "100%", maxWidth: "900px" }}>
+    <Box sx={{ p: 2,   maxWidth: 1000, margin: 'auto'}}>
       <Grid>
         {/* Main Content */}
         <Grid item xs={12} md={9}>
-          <Typography variant="h4" gutterBottom color="primary">
+          <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
             HTML Formatting 
           </Typography>
 

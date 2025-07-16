@@ -2,10 +2,10 @@ import { Box, Typography, List, ListItem, Divider, Grid } from "@mui/material";
 
 const Html_attributes = () => {
   return (
-    <Box sx={{ p: { xs: 2, md: 4 }, width: "100%", maxWidth: "900px" }}>
+    <Box sx={{ p: 2,   maxWidth: 1000, margin: 'auto' }}>
       <Grid container justifyContent="center">
         <Grid item xs={12} md={10} lg={8}>
-          <Typography variant="h4" gutterBottom color="primary">
+          <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
             HTML Attributes
           </Typography>
 

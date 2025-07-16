@@ -195,7 +195,7 @@ const SlidingCards = ({ darkMode }) => {
       {/* Snackbar for error message */}
       <Snackbar
         open={snackbarOpen}
-        autoHideDuration={1000}
+        autoHideDuration={800}
         onClose={() => setSnackbarOpen(false)}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >

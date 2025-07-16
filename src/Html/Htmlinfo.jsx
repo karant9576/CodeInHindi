@@ -59,6 +59,8 @@ const Htmlinfo = () => {
     { label: "HTML iframe", path: "iframe" },
     { label: "HTML Audio", path: "audio" },
     { label: "HTML Video", path: "video" },
+    
+
   ];
 
   const topicComponents = {
@@ -84,7 +86,7 @@ const Htmlinfo = () => {
   const TopicComponent = topicComponents[topic];
 
   const renderTopicList = () => (
-    <Box sx={{ width: 300, p: 2, maxWidth: 900, }}>
+    <Box sx={{ width: 300, p: 2,  }}>
       <Typography variant="h6" gutterBottom>
         📘 HTML Topics
       </Typography>

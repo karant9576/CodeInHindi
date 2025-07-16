@@ -4,7 +4,7 @@ const CssTextShadow = () => {
   return (
     <Box sx={{ p: 2 , width: '100%', maxWidth: 900, margin: "auto" }}>
       <Typography variant="h5" gutterBottom color="primary" fontWeight="bold">
-        CSS text-shadow
+        CSS Text-shadow
       </Typography>
       <Typography gutterBottom>
         <b>text-shadow</b> property का use किसी text में shadow (छाया) apply करने के लिए किया जाता है। यह एक shorthand property है जो horizontal, vertical shadow, blur और color को define करती है।

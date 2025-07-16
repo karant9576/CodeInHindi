@@ -4,7 +4,7 @@ import { Typography, Box } from "@mui/material";
 const CssTextDecoration = () => {
   return (
     <Box sx={{ p: 2,  width: "100%", maxWidth: 900, margin: "auto" }}>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
         CSS Text Decoration (टेक्स्ट डेकोरेशन)
       </Typography>
 

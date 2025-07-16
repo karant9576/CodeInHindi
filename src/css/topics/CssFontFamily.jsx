@@ -4,7 +4,7 @@ const CssFontFamily = () => {
   return (
     <Box sx={{ p: 2, width: "100%", maxWidth: 900, margin: "auto" }}>
       <Typography variant="h5" gutterBottom color="primary" fontWeight="bold">
-        CSS font-family
+        CSS Font-family
       </Typography>
 
       <Typography gutterBottom>

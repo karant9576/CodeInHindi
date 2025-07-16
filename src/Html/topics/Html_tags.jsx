@@ -87,10 +87,10 @@ const tagData = [
 
 const Html_tags = () => {
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center",  p: 2 , width: '100%', maxWidth: 'auto', margin: '0 auto'}}>
+    <Box sx={{ p: 2,   maxWidth: 1000, margin: 'auto'}}>
       <Grid >
         
-          <Typography variant="h4" gutterBottom color="primary">
+          <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
             HTML टैग्स
           </Typography>
 
