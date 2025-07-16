@@ -3,20 +3,10 @@ import { Box, Grid, Typography, Divider, List, ListItem } from '@mui/material';
 const Html_intro = () => {
   return (
     <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        width: '100%',
-        maxWidth: 'atuo',
-        margin: '0 auto',
-        
-        p: 2,
-      }}
+      sx={{ p: 2,   maxWidth: 1000, margin: 'auto' }}
     >
       <Grid>
-        <Typography variant="h4" gutterBottom color="primary">
+        <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
           HTML परिचय
         </Typography>
 

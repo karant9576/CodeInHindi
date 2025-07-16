@@ -2,9 +2,9 @@ import { Box, Typography, Divider, Container } from "@mui/material";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
 const Html_elements = () => {
   return (
-    <Box sx={{ py: 3, px: { xs: 1, sm: 3 }, }}>
+    <Box sx={{ p: 2,   maxWidth: 1000, margin: 'auto'}}>
       <Container maxWidth="md">
-        <Typography variant="h4" gutterBottom color="primary">
+        <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
           HTML एलिमेंट्स
         </Typography>
 
@@ -15,7 +15,7 @@ const Html_elements = () => {
         <Divider sx={{ my: 2 }} />
 
         <Typography variant="h6" gutterBottom>उदाहरण:</Typography>
-        <Box component={Paper} sx={{ mb: 2, overflowX: 'auto' }}>
+        <Box component={Paper} sx={{ mb: 2, overflowX: 'auto'}}>
   <Table>
     <TableHead>
       <TableRow>

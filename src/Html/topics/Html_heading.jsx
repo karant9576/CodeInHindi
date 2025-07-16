@@ -2,8 +2,8 @@ import { Typography, Box, Divider } from "@mui/material";
 
 const Html_heading = () => {
   return (
-    <Box sx={{ p: 2 , width: "100%", maxWidth: "900px" }}>
-      <Typography variant="h4" gutterBottom color="primary">
+    <Box sx={{ p: 2,   maxWidth: 1000, margin: 'auto' }}>
+      <Typography variant="h5" gutterBottom fontWeight="bold" color='primary'>
         HTML Heading
       </Typography>
 
