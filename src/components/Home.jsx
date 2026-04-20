@@ -20,7 +20,7 @@ function Home() {
     <Grid item xs={12} md={6} sx={{ textAlign: { xs: "center", md: "left" }, ml:{ xs: 0, sm: 19, md: 12 } }}>
       <Typography
         variant="subtitle2"
-        color="#6c63ff"
+        color="#FF6B35"
         fontWeight={700}
         gutterBottom
         sx={{ ml: { xs: 0, md: 1 } }}

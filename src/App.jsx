@@ -25,13 +25,13 @@ function App() {
     const newMode = !darkMode;
     setDarkMode(newMode);
     localStorage.setItem("darkMode", newMode);
-    document.body.style.background = newMode ? "#181c31" : "#fff";
+    document.body.style.background = newMode ? "#0A0F29" : "#fff";
     document.body.style.color = newMode ? "#fff" : "#000";
   };
 
   //  Apply body background/text color when theme changes
   useEffect(() => {
-    document.body.style.background = darkMode ? "#181c31" : "#fff";
+    document.body.style.background = darkMode ? "#0A0F29" : "#fff";
     document.body.style.color = darkMode ? "#fff" : "#000";
   }, [darkMode]);
 
@@ -43,7 +43,7 @@ function App() {
           mode: darkMode ? "dark" : "light",
           ...(darkMode && {
             background: {
-              default: "#181c31",
+              default: "#0A0F29",
               paper: "#1f233e",
             },
             text: {

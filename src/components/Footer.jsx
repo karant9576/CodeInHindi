@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography, Link } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
+// import fav from "../assets/newfav.png";
 const Footer = () => {
   const navigate = useNavigate();
   const pages = ["Home", "About", "Blog",];
@@ -9,17 +9,32 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        backgroundColor: "#1a1a1a",
+        backgroundColor: "#010a2aff",
         color: "#fff",
         py: { xs: 4, sm: 6 },
         mt: 10,
       }}
     >
+         {/* <Box
+          component="img"
+          src={fav}
+          
+          sx={{
+            width: 190,
+            height: 190,
+            display: "flex-wrap",
+            mx: "auto",
+           ml: { xs: 0, sm: 2, md: 9 },
+          
+            
+          }}
+        /> */}
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+        
+        <Grid container spacing={4} sx={{ml:{ xs: 1, sm: 6, md: 15 }}}>
           {/* About */}
           <Grid item xs={12} sm={4}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom sx={{display: "inline",}}>
               CodeinHindi
             </Typography>
             <Typography variant="body2" sx={{ color: "gray" }}>

@@ -175,12 +175,12 @@ const SlidingCards = ({ darkMode }) => {
                     }
                   }}
                   sx={{
-                    backgroundColor: "#6c63ff",
+                    backgroundColor: "#FF6B35",
                     color: "#fff",
                     textTransform: "none",
                     fontSize: 14,
                     "&:hover": {
-                      backgroundColor: "#5a54d1",
+                      backgroundColor: "#f14b0fff",
                     },
                   }}
                 >
